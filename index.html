@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="QUADRA CI/CD project demo website">
+  <title>QUADRA | CI/CD Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="QUADRA home"><span class="brand-mark">Q</span> QUADRA<span class="brand-light"> DevOps</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#pipeline">Pipeline</a>
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> AUTOMATION PROJECT</p>
+        <h1>From code to <span>cloud.</span></h1>
+        <p class="hero-text">A simple demonstration website for the QUADRA automated CI/CD pipeline using GitHub, Jenkins, Docker, and AWS.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#pipeline">Explore pipeline <span aria-hidden="true">→</span></a>
+          <button class="button secondary" id="checkButton" type="button">Check website status</button>
+        </div>
+        <p class="status-message" id="statusMessage" role="status">Website status has not been checked yet.</p>
+      </div>
+      <div class="hero-panel" aria-label="Pipeline overview">
+        <div class="panel-top"><span class="panel-dot"></span><span class="panel-dot"></span><span class="panel-dot"></span><span class="panel-label">pipeline-overview</span></div>
+        <div class="code-line"><span class="line-no">01</span><span class="code-purple">git</span> push origin main</div>
+        <div class="code-line"><span class="line-no">02</span><span class="code-green">jenkins</span> build &amp; test</div>
+        <div class="code-line"><span class="line-no">03</span><span class="code-blue">docker</span> build image</div>
+        <div class="code-line"><span class="line-no">04</span><span class="code-orange">aws</span> deploy application</div>
+        <div class="pipeline-result"><span class="result-icon">✓</span><div><strong>Pipeline plan ready</strong><small>Local testing comes first</small></div><span class="result-tag">DEMO</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="pipeline">
+      <div class="section-heading"><p class="eyebrow">THE WORKFLOW</p><h2>Our CI/CD pipeline</h2><p>Each stage has one job. We will configure and verify the stages one at a time.</p></div>
+      <div class="pipeline-grid">
+        <article class="stage-card"><div class="stage-number">01</div><div class="stage-icon purple">⌘</div><h3>Source</h3><p>Store and version the application code in GitHub.</p><span class="stage-label">GitHub</span></article>
+        <article class="stage-card"><div class="stage-number">02</div><div class="stage-icon green">⚙</div><h3>Build &amp; test</h3><p>Use Jenkins to run the pipeline and validate changes.</p><span class="stage-label">Jenkins</span></article>
+        <article class="stage-card"><div class="stage-number">03</div><div class="stage-icon blue">▣</div><h3>Package</h3><p>Package the website into a repeatable Docker image.</p><span class="stage-label">Docker</span></article>
+        <article class="stage-card"><div class="stage-number">04</div><div class="stage-icon orange">☁</div><h3>Deploy</h3><p>Deploy to AWS after local checks are successful.</p><span class="stage-label">AWS</span></article>
+      </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+      <div><p class="eyebrow">OUR TOOLKIT</p><h2>One project. Four tools.</h2><p>Start with the basics, confirm everything works locally, and then move to cloud deployment.</p></div>
+      <div class="tool-list">
+        <div><span class="tool-letter github">G</span><div><strong>GitHub</strong><small>Code repository</small></div><span class="tool-check">✓</span></div>
+        <div><span class="tool-letter jenkins">J</span><div><strong>Jenkins</strong><small>Pipeline automation</small></div><span class="tool-check">✓</span></div>
+        <div><span class="tool-letter docker">D</span><div><strong>Docker</strong><small>Container packaging</small></div><span class="tool-check">Next</span></div>
+        <div><span class="tool-letter aws">A</span><div><strong>AWS</strong><small>Cloud deployment</small></div><span class="tool-check">Later</span></div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-badge">Q</div>
+      <div><p class="eyebrow">ABOUT THIS PROJECT</p><h2>Learn by building.</h2><p>QUADRA_ASD-CICD-Project is a learning project that brings source control, continuous integration, containerization, and cloud deployment into one workflow.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">Q</span> QUADRA</a><p>Built as a learning project · <span id="year"></span></p><a href="#top" id="topLink">Back to top ↑</a></footer>
+</body>
+</html>
