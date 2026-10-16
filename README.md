@@ -4,3 +4,4 @@ Webhook automatic build test
 CI/CD Pipeline: Automatic Jenkins Build Trigger Test
 Testing Jenkins Automatic Build Trigger
 jira
+jira setup
