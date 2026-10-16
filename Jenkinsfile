@@ -5,6 +5,7 @@ pipeline {
     environment {
         DOCKER = 'C:\\Users\\ayush\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe'
         IMAGE = 'quadra-web:latest'
+        CONTAINER = 'quadra-ci'
     }
 
     stages {
@@ -25,15 +26,23 @@ pipeline {
                 bat '"%DOCKER%" build -t "%IMAGE%" .'
             }
         }
+
+        stage('Deploy Container') {
+            steps {
+                bat '''
+                "%DOCKER%" rm -f "%CONTAINER%" 2>NUL
+                "%DOCKER%" run -d --name "%CONTAINER%" -p 8083:80 "%IMAGE%"
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo 'SUCCESS: Code checked out and Docker image built successfully!'
+            echo 'SUCCESS: Website deployed on http://localhost:8083'
         }
-
         failure {
-            echo 'FAILED: Check Console Output for the error.'
+            echo 'FAILED: Check Console Output.'
         }
     }
 }
